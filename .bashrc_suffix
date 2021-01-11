@@ -1,0 +1,53 @@
+###############################################################################
+#####  Above this line are the unchanged Ubuntu 20.04 bashrc settings     #####
+#####  Below this line are updates added by Bob Y. (26 Dec 2020)          #####
+###############################################################################
+
+# Define the path to SSH private keys that you would like to be forwarded
+# using ssh-agent.  For example, if you want to connect to the AWS cloud, 
+# then add the private key that is stored in your AWS account here.
+# Add as many private keys as you like.  Private keys should be stored
+# in the ~/.ssh folder.
+key_1=~/.ssh/bmy_aws_keypair.pem
+key_2=~/.ssh/id_rsa_20181218
+
+# Start the ssh-agent (if necessary)
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+# Add a new ssh-add command for all of the private keys
+# that you want to be forwarded with ssh-agent!
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add ${key_1}
+    ssh-add ${key_2}
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add ${key_1}
+    ssh-add ${key_2}
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yantosca/python/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yantosca/python/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yantosca/python/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yantosca/python/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
