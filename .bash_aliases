@@ -25,7 +25,8 @@
 # %%%%% Personal settings: Look-and-feel customizations %%%%%
 #==============================================================================
 
-PS1="\[\e[1;32m\][\h \W]$\[\e[0m\] "  # Override the default Unix prompt
+# Set the prompt (93 is yellow)
+PS1="\[\e[1;93m\][\h \W]$\[\e[0m\] "
 
 # Settings for colorization
 export GREP_COLOR=32
@@ -82,23 +83,24 @@ alias tmuxde="tmux detach "
 #==============================================================================
 
 # Aliases for Git commands
-source /etc/bash_completion.d/git    # enable tab-completion
+#source /etc/bash_completion.d/git    # enable tab-completion
 alias clone_gcc="git clone git@github.com:geoschem/GCClassic.git"
 alias clone_gchp="git clone git@github.com:geoschem/gchpctm.git"
 alias clone_hco="git clone git@github.com:geoschem/hemco.git"
-alias getenv="cd ~/env; git pull origin master"
 alias gitc="git -C CodeDir"
+alias gka="gitk --all 2>/dev/null &"
 alias gl="git log"
 alias glo="git log --oneline"
 alias glog="git -C src/GEOS-Chem log --oneline "
 alias gplog="git -C src/GCHP_GridComp/GEOSChem_GridComp/geos-chem log --oneline "
 alias glp="git log --pretty=format:'%h : %s' --topo-order --graph"
-alias getenv="cd ~/env; git pull origin master"
+alias gsu="git submodule update --init --recursive"
+alias gui="git gui 2>/dev/null &"
 alias update_tags="git tag -l | xargs git tag -d && git fetch -t"
 
 function gcc2gc() {
     ##### Navigate from GCClassic src/GEOS-Chem dir #####
-    if [[ -d ./CodeDir ]]; then 
+    if [[ -d ./CodeDir ]]; then
 	cd CodeDir/src/GEOS-Chem
     else
 	cd src/GEOS-Chem
@@ -107,7 +109,7 @@ function gcc2gc() {
 
 function gc2gcc() {
     ##### Navigate from src/GEOS-Chem to GCClassic #####
-    if [[ -d ../../../CodeDir ]]; then 
+    if [[ -d ../../../CodeDir ]]; then
 	cd ../../..
     else
 	cd ../..
@@ -116,7 +118,7 @@ function gc2gcc() {
 
 function gchp2gc() {
     ##### Navigate from GCHPctm to geos-chem #####
-    if [[ -d ./CodeDir ]]; then 
+    if [[ -d ./CodeDir ]]; then
 	cd CodeDir/src/GCHP_GridComp/GEOSChem_GridComp/geos-chem
     else
 	cd src/GCHP_GridComp/GEOSChem_GridComp/geos-chem
@@ -125,7 +127,7 @@ function gchp2gc() {
 
 function gc2gchp() {
     ##### Navigate from geos-chem to GCHPctm #####
-    if [[ -d ../../../../CodeDir ]]; then 
+    if [[ -d ../../../../CodeDir ]]; then
 	cd ../../../../..
     else
 	cd ../../../..
@@ -224,14 +226,14 @@ function strip_ignoreeof_from_arg_list() {
     done
     echo "${argv}"
 }
-    
+
 function config_gc_from_rundir() {
     ##### Function to configure GEOS-Chem from the run directory #####
 
     # Arguments
     argv=$(strip_ignoreeof_from_arg_list $@)
     echo "%%% Arguments: ${argv}"
-    
+
     # Local variables
     thisDir=$(pwd -P)
     buildDir="build"
@@ -264,7 +266,7 @@ function config_gc_debug_from_rundir() {
     # Arguments
     argv=$(strip_ignoreeof_from_arg_list $@)
     echo "%%% Arguments: ${argv}"
-    
+
     # Local variables
     thisDir=$(pwd -P)
     buildDir="debug"
@@ -324,7 +326,7 @@ function build_gc() {
 	return 1
     fi
 
-    # Success 
+    # Success
     echo "%%% Successful Compilation and Installation! %%%"
     cd ${thisDir}
     return 0
@@ -372,7 +374,7 @@ function gcrun() {
 function gcdry() {
     ##### GEOS-Chem dryrun, pipe to log #####
     log=$(set_log_file "DryRun_${1}")
-    rm -rf ${log}  
+    rm -rf ${log}
     ./gcclassic --dryrun > ${log}
 }
 
@@ -420,7 +422,7 @@ if [[ "x${HOSTNAME}" == "xholyjacob01.rc.fas.harvard.edu" ]]; then
 else
     export KPP_HOME="$HOME/KPP/kpp-2.2.3_01"
     export KPP_BIN=${KPP_HOME}/bin
-fi    
+fi
 export PATH=${PATH}:${KPP_BIN}
 
 #EOC

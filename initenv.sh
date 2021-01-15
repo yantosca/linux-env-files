@@ -14,21 +14,21 @@
 #  cd cannon-env-files
 #  ./initenv.sh
 #
-# !REVISION HISTORY: 
+# !REVISION HISTORY:
 #  Use the gitk browser to view the revision history!
 #EOP
 #------------------------------------------------------------------------------
 #BOC
 
 # Copy files to the home folder
-cp -f root/.bash_aliases ~
-cp -f root/.gitconfig    ~
-cp -f root/.tmux.conf    ~
-cp -f root/.Xresources   ~
+cp -f .bash_aliases ~
+cp -f .gitconfig    ~
+cp -f .tmux.conf    ~
+cp -f .Xresources   ~
 
 # Copy emacs init files
 if [[ ! -d ~/.emacs.d ]]; then
     mkdir ~/.emacs.d
 fi
-cp -f root/.emacs.d/*. ~/.emacs.d/
+cp -f .emacs.d/*. ~/.emacs.d/
 #EOC

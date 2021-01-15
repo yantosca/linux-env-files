@@ -612,9 +612,16 @@
 ;; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ;; %%%%% Bob Y's Coronavirus working from home preferences          
 ;; %%%%% Open two windows, 80 columns x 49 lines, centered on screen
-(set-frame-height (selected-frame) 49)    ; 48 lines
-(set-frame-width  (selected-frame) 164)   ; 163 columns
-(split-window-horizontally)               ; Use two vertical windows
+;;(set-frame-height (selected-frame) 49)    ; 48 lines
+;;(set-frame-width  (selected-frame) 164)   ; 163 columns
+;;(split-window-horizontally)               ; Use two vertical windows
+;; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+;; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+;; %%%%% Bob Y's Linux Laptop preferences
+;; %%%%% Open 1 window
+(set-frame-height (selected-frame) 34)      ; 34 lines
+(set-frame-width  (selected-frame) 81)      ; 80 columns
 ;; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ;; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
