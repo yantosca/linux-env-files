@@ -26,7 +26,7 @@
 #==============================================================================
 
 # Set the prompt (93 is yellow)
-PS1="\[\e[1;93m\][\h \W]$\[\e[0m\] "  
+PS1="\[\e[1;93m\][\h \W]$\[\e[0m\] "
 
 # Settings for colorization
 export GREP_COLOR=32
@@ -38,10 +38,10 @@ export LS_COLORS='no=00:fi=00:di=01;33:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # General Unix commands
 alias disk="du -h -s -c"
+alias emacs="emacs 2>/dev/null"
 alias g="grep -in --color=auto"
 alias gt="grep -in --text"
-alias gf="gifview -a"
-alias m="less"
+alias m="less -CR"
 alias me="xterm &"
 alias proc="ps -ef | grep $USER | sort"
 alias pu="rm *~"
@@ -58,6 +58,7 @@ alias rm="rm -Iv"
 alias rmcore="rm core.*"
 alias cp="cp -v"
 alias mv="mv -v"
+alias ssh="ssh -YA"
 
 # Directory listing commands
 alias ls="ls -CF --time-style=long-iso --color=auto"
