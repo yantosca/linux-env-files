@@ -22,7 +22,7 @@
 
 # Copy files to the home folder
 cp -f .bash_aliases ~
-cp -f .gitconfig    ~
+#cp -f .gitconfig    ~
 cp -f .tmux.conf    ~
 cp -f .Xresources   ~
 
