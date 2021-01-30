@@ -37,7 +37,8 @@ xterm*autoRaise:       true
 ! Generic font, should work on any Linux installation
 !xterm*font:            10x20
 !-------------------------------------------------------------------
-! Specific font, check to see if it is installed locally
-xterm*faceName:        DejaVu Sans Mono:size=12:embolden=true
+! Specific fonts, check to see if these are installed locally
+!xterm*faceName:        DejaVu Sans Mono:size=12:embolden=true
+xterm*faceName:        Source Code Pro Medium:size=12:embolden=true
 !-------------------------------------------------------------------
 !EOC
