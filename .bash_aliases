@@ -6,26 +6,29 @@
 # !MODULE: .bash_aliases
 #
 # !DESCRIPTION: A .bashrc-style file that you can use to contain your own
-#  personal settings for the Cannon cluster.
+#  personal settings for Linux desktops.  Contains useful settings for
+#  connecting to the Amazon Web Services cloud computing environment.
+#  Feel free to add/change/remove any of these settings as you wish.
 #\\
 #\\
 # !CALLING SEQUENCE:
 #  source ~/.bash_aliases
 #  (will also be called each time you source ~/.bashrc)
 #
-# !REMARKS:
-#  The .bashrc file contains settings that are common to all users of
-#  GEOS-Chem.  But here you can add settings that would only be applicable
-#  to your own environment.
+# !AUTHOR
+#  Bob Yantosca (yantosca@seas.harvard.edu), 20 Dec 2018
+#
+# !REVISION HISTORY: 
+#  Use the gitk browser to view the revision history!
 #EOP
 #------------------------------------------------------------------------------
 #BOC
 
 #==============================================================================
-# %%%%% Personal settings: Look-and-feel customizations %%%%%
+# %%%%% Personal settings: Look-and-feel %%%%%
 #==============================================================================
 
-# Set the prompt (93 is yellow)
+# Override the system prompt (93 = yellow)
 PS1="\[\e[1;93m\][\h \W]$\[\e[0m\] "
 
 # Settings for colorization
@@ -70,6 +73,11 @@ alias la="ls -a"
 alias lla="ls -la"
 alias llh="ls -lh"
 
+# Tmux aliases
+alias tmuxnew="tmux new -s "
+alias tmuxat="tmux a -t "
+alias tmuxde="tmux detach "
+
 # Convert a windows file to Unix
 function dos2unix() {
   awk '{ sub("\r$", ""); print }' $1 > $2
@@ -79,20 +87,14 @@ function dos2unix() {
 # %%%%% Personal settings: Git commands %%%%%
 #==============================================================================
 
-# Aliases for Git commands
-#source /etc/bash_completion.d/git    # enable tab-completion
-alias clone_gcc="git clone git@github.com:geoschem/GCClassic.git"
-alias clone_gchp="git clone git@github.com:geoschem/gchpctm.git"
-alias clone_hco="git clone git@github.com:geoschem/hemco.git"
-alias gitc="git -C CodeDir"
+# Basic Git commands
+alias gui="git gui 2>/dev/null &"
+alias gk="gitk 2>/dev/null &"
 alias gka="gitk --all 2>/dev/null &"
+alias gpo="git pull origin"
 alias gl="git log"
 alias glo="git log --oneline"
-alias glog="git -C src/GEOS-Chem log --oneline "
-alias gplog="git -C src/GCHP_GridComp/GEOSChem_GridComp/geos-chem log --oneline "
 alias glp="git log --pretty=format:'%h : %s' --topo-order --graph"
-alias gsu="git submodule update --init --recursive"
-alias gui="git gui 2>/dev/null &"
 alias update_tags="git tag -l | xargs git tag -d && git fetch -t"
 
 function gbup() {
@@ -101,10 +103,10 @@ function gbup() {
 }
 
 function gbrd() {
-  git branch -r -d origin/$1
+    ###### Remove remote branches #####
+    git branch -r -d origin/$1
 }
 
-# Remove local and remote branches
 function gprune() {
     ##### Remove local and remote branches #####
     git branch -d $1
@@ -112,29 +114,33 @@ function gprune() {
 }
 
 #==============================================================================
-# %%%%% Logins to other machines %%%%%
+# %%%%% Personal settings: Harvard logins %%%%%
 #==============================================================================
 
 # Log into AS
 alias bmygo="ssh bmy@bmy.as.harvard.edu"
 
-# Log into the holylogin nodes
+# Log into FASRC round-robin login nodes
+alias rcgo="ssh ryantosca@login.rc.fas.harvard.edu"
+
 function hgo() {
+    ##### Log into a holylogin node #####
     node=$(printf %02d $1)
     ssh ryantosca@holylogin${node}.rc.fas.harvard.edu
 }
 
-# Log into AWS
+#==============================================================================
+# %%%%% Personal settings: AWS cloud %%%%%
+#==============================================================================
+
+# Amazon S3 commands
+alias s3copy="aws s3 cp -request-payer=requester "
+alias s3ls="aws s3 ls -request-payer=requester "
+
 function awsgo() {
+    ##### Log into an AWS instance #####
     ssh ubuntu@${1}
 }
-
-#==============================================================================
-# %%%%% Tmux %%%%%
-#==============================================================================
-alias tmuxnew="tmux new -s "
-alias tmuxat="tmux a -t "
-alias tmuxde="tmux detach"
 
 #==============================================================================
 # %%%%% Python settings %%%%%
