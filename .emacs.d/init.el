@@ -40,14 +40,13 @@
 ;; FONTS - customize to look best on your system!
 ;;=============================================================================
 
-;; %%%%% NOTE: USE THIS FONT WITH MOBAXTERM (bmy, 5/25/18) %%%%%
+;; DejaVuSansMono 12pt bold
 (set-face-font
  'default "-*-DejaVuSansMono-Bold-R-*-*-*-120-*-*-*-*-iso8859-1" )
 
-;; %%%%% NOTE: USE THIS FONT WITH PUTTY AND XTERM (bmy, 5/25/18 %%%%%
 ;; Lucida Typewriter 14pt bold
-;;(set-face-font
-;; 'default "-*-Lucidatypewriter-Bold-R-*-*-*-140-*-*-*-*-iso8859-1" )
+;(set-face-font
+; 'default "-*-Lucidatypewriter-Bold-R-*-*-*-140-*-*-*-*-iso8859-1" )
 
 ;; Example of normal instead of bold
 ;; Lucida Typewriter 14pt normal
@@ -68,13 +67,12 @@
 ;; COLOR SETTINGS - customize
 ;;=============================================================================
 
-;; BACKGROUND COLOR
-(set-face-background 'default "gray75")            ; Bob's preference
-;(set-face-background 'default "FloralWhite")      ; Philippe's preference
-;(set-face-background 'default "dark slate gray")  ; ... a
-;(set-face-foreground 'default "blanched almond")  ;     few
-;(set-face-foreground 'default "black")            ;     other
-;(set-face-foreground 'default "white")            ;     options ...
+;; BACKGROUND COLOR OPTIONS (ignored if using -nw)
+(unless (featurep 'no-window-system) (set-face-background 'default "gray75"))
+;(unless (featurep 'no-window-system) (set-face-background 'default "FloralWhite")
+;(unless (featurep 'no-window-system) (set-face-background 'default "dark slate gray")
+;(unless (featurep 'no-window-system) (set-face-foreground 'default "blanched almond")
+;(unless (featurep 'no-window-system) (set-face-foreground 'default "black")
 
 ;; "COLORIZATION" COLORS FOR CODE
 (custom-set-faces
@@ -377,9 +375,6 @@
 		("\\.kpp"                   . f90-mode)
 		("\\.tex$"                  . latex-mode)
 		("\\.m$"                    . matlab-mode)
-		("\\.bashrc$"               . shell-script-mode)
-		("\\.bash_aliases$"         . shell-script-mode)
-		("\\.my_personal_settings$" . shell-script-mode)
 		("\\.sh$"                   . shell-script-mode)
 		("\\.env$"                  . shell-script-mode)
 		("\\.centos7$"              . shell-script-mode)
@@ -387,6 +382,11 @@
 		("\\.yaml$"                 . yaml-mode)
 		("\\.yml$"                  . yaml-mode)
 	       )auto-mode-alist))
+
+;; Manually add certain configuration files to shell-script mode
+(add-to-list 'auto-mode-alist '(".bashrc"               . shell-script-mode))
+(add-to-list 'auto-mode-alist '(".bash_aliases"         . shell-script-mode))
+(add-to-list 'auto-mode-alist '(".my_personal_settings" . shell-script-mode))
 
 ;;-----------------------------------------------------------------------------
 ;; IDL MODE CUSTOMIZATIONS
@@ -653,4 +653,3 @@
 ;(other-window 1)                           ; move back to first window
 
 ;EOC
-
