@@ -36,3 +36,7 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
     ssh-add ${key_2}
 fi
 
+# Free variables
+unset env
+unset key_1
+unset key_2
