@@ -11,7 +11,7 @@
 #\\
 #\\
 # !CALLING SEQUENCE:
-#  cd cannon-env-files
+#  cd linux-env-files
 #  ./initenv.sh
 #
 # !REVISION HISTORY:
@@ -30,5 +30,5 @@ cp -f .Xresources   ~
 if [[ ! -d ~/.emacs.d ]]; then
     mkdir ~/.emacs.d
 fi
-cp -f .emacs.d/*. ~/.emacs.d/
+cp -f .emacs.d/*.el ~/.emacs.d/
 #EOC

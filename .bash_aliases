@@ -62,6 +62,8 @@ alias rmcore="rm core.*"
 alias cp="cp -v"
 alias mv="mv -v"
 alias ssh="ssh -YA"
+alias spy="sudo pacman -Sy"  # Manjaro only
+alias sry="sudo pacman -Ry"  # Manjaro only
 
 # Directory listing commands
 alias ls="ls -CF --time-style=long-iso --color=auto"

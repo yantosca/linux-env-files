@@ -598,9 +598,9 @@
 ;; all modes are loaded -like here-, if you want the "colorization" of code
 ;; to work.
 ;;=============================================================================
-(load "desktop")
-(desktop-load-default)
-(desktop-read)
+;;(load "desktop")
+;;(desktop-load-default)
+;;(desktop-read)
 
 ;;=============================================================================
 ;; FRAME SIZE AND POSITION
