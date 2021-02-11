@@ -83,6 +83,9 @@ function dos2unix() {
   awk '{ sub("\r$", ""); print }' $1 > $2
 }
 
+# Upgrade packages
+alias supg="sudo apt update && sudo apt upgrade -y"
+
 #==============================================================================
 # %%%%% Personal settings: Git commands %%%%%
 #==============================================================================
@@ -161,4 +164,13 @@ export PYLINTRC=~/.pylint.rc
 
 # Temporary Python folder (avoids warning messages)
 export XDG_RUNTIME_DIR=/tmp/runtime-${USER}
+
+#==============================================================================
+# %%%%% Jekyll settings %%%%%
+#
+# See: https://jekyllrb.com/docs/installation/ubuntu/
+#==============================================================================
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+alias jserve="bundle exec jekyll serve"
 #EOC
