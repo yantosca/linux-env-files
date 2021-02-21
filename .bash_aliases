@@ -62,8 +62,9 @@ alias rmcore="rm core.*"
 alias cp="cp -v"
 alias mv="mv -v"
 alias ssh="ssh -YA"
+alias sp="sudo pacman -S"    # Manjaro only
 alias spy="sudo pacman -Sy"  # Manjaro only
-alias sry="sudo pacman -Ry"  # Manjaro only
+alias sry="sudo pacman -R"   # Manjaro only
 
 # Directory listing commands
 alias ls="ls -CF --time-style=long-iso --color=auto"
@@ -168,11 +169,16 @@ export PYLINTRC=~/.pylint.rc
 export XDG_RUNTIME_DIR=/tmp/runtime-${USER}
 
 #==============================================================================
-# %%%%% Jekyll settings %%%%%
+# %%%%% Ruby & Jekyll settings %%%%%
 #
-# See: https://jekyllrb.com/docs/installation/ubuntu/
+# Manjaro : https://wiki.archlinux.org/index.php/Ruby
+# Ubuntu  : https://jekyllrb.com/docs/installation/ubuntu/
 #==============================================================================
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+
+# Folder where Ruby GEMS are installed
+export GEM_HOME=$(ruby -e 'puts Gem.user_dir')/bin
+export PATH="${GEM_HOME}:${PATH}"
+
+# Jekyll command
 alias jserve="bundle exec jekyll serve"
 #EOC
