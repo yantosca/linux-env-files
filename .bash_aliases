@@ -121,6 +121,17 @@ function gprune() {
     git branch -d $1
     gbrd $1
 }
+# Git aliases for GEOS-Chem
+source /etc/bash_completion.d/git
+alias clone_gcc="git clone git@github.com:geoschem/GCClassic.git"
+alias clone_gchp="git clone git@github.com:geoschem/gchp.git"
+alias clone_hco="git clone git@github.com:geoschem:hemco.git"
+alias gitc="git -C CodeDir"
+alias glog="git -C src/GEOS-Chem log --oneline"
+alias gplog="git -C src/GCHP_GridComp/GEOSChem_GridComp/geos-chem log --oneline"
+alias hlog="git -C src/HEMCO log --oneline"
+alias gplog="git -C src/GCHP_GridComp/HEMCO_GridComp/HEMCO log --oneline"
+
 
 #==============================================================================
 # %%%%% Personal settings: Harvard logins %%%%%
