@@ -18,7 +18,7 @@
 # !AUTHOR
 #  Bob Yantosca (yantosca@seas.harvard.edu), 20 Dec 2018
 #
-# !REVISION HISTORY: 
+# !REVISION HISTORY:
 #  Use the gitk browser to view the revision history!
 #EOP
 #------------------------------------------------------------------------------
@@ -41,7 +41,8 @@ export LS_COLORS='no=00:fi=00:di=01;33:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # General Unix commands
 alias disk="du -h -s -c"
-alias emacs="emacs 2>/dev/null"
+alias emacs="emacs 2>/dev/null"                             # Any GNU/Linux
+#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' # MacOS/BSD
 alias g="grep -in --color=auto"
 alias gt="grep -in --text"
 alias m="less -CR"
@@ -57,17 +58,20 @@ alias cd="cd -P"
 alias c="clear"
 alias h="history"
 alias diff="colordiff"
-alias rm="rm -Iv"
+#alias rm="rm -Iv"                                     # Any GNU/Linux
+alias rm="rm -v"                                      # MacOS/BSD
 alias rmcore="rm core.*"
 alias cp="cp -v"
 alias mv="mv -v"
 alias ssh="ssh -YA"
-alias sp="sudo pacman -S"    # Manjaro only
-alias spy="sudo pacman -Sy"  # Manjaro only
-alias sry="sudo pacman -R"   # Manjaro only
+#alias sp="sudo pacman -S"                             # Manjaro Linux
+#alias spy="sudo pacman -Sy"                           # Manjaro Linux
+#alias sry="sudo pacman -R"                            # Manjaro Linux
+#alias supg="sudo apt update && sudo apt upgrade -y"   # Ubuntu Linux
 
 # Directory listing commands
-alias ls="ls -CF --time-style=long-iso --color=auto"
+#alias ls="ls -CF --time-style=long-iso --color=auto"  # Any GNU/Linux
+alias ls="ls -CF"                                     # MacOS/BSD
 alias l1="ls -1"
 alias ll="ls -l"
 alias llt="ls -lt"
@@ -86,8 +90,7 @@ function dos2unix() {
   awk '{ sub("\r$", ""); print }' $1 > $2
 }
 
-# Upgrade packages
-alias supg="sudo apt update && sudo apt upgrade -y"
+# Upgrade packages (Ubuntu only)
 
 #==============================================================================
 # %%%%% Personal settings: Git commands %%%%%
