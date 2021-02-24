@@ -90,8 +90,6 @@ function dos2unix() {
   awk '{ sub("\r$", ""); print }' $1 > $2
 }
 
-# Upgrade packages (Ubuntu only)
-
 #==============================================================================
 # %%%%% Personal settings: Git commands %%%%%
 #==============================================================================
@@ -128,10 +126,9 @@ alias clone_gchp="git clone git@github.com:geoschem/gchp.git"
 alias clone_hco="git clone git@github.com:geoschem:hemco.git"
 alias gitc="git -C CodeDir"
 alias glog="git -C src/GEOS-Chem log --oneline"
-alias gplog="git -C src/GCHP_GridComp/GEOSChem_GridComp/geos-chem log --oneline"
+alias gsu="git submodule update --init --recursive"
 alias hlog="git -C src/HEMCO log --oneline"
-alias gplog="git -C src/GCHP_GridComp/HEMCO_GridComp/HEMCO log --oneline"
-
+alias hplog="git -C src/GCHP_GridComp/HEMCO_GridComp/HEMCO log --oneline"
 
 #==============================================================================
 # %%%%% Personal settings: Harvard logins %%%%%
