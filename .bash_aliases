@@ -58,13 +58,14 @@ alias cd="cd -P"
 alias c="clear"
 alias h="history"
 alias diff="colordiff"
-#alias rm="rm -Iv"                                     # Any GNU/Linux
-alias rm="rm -v"                                      # MacOS/BSD
+alias rm="rm -Iv"                                     # Any GNU/Linux
+#alias rm="rm -v"                                      # MacOS/BSD
 alias rmcore="rm core.*"
 alias cp="cp -v"
 alias mv="mv -v"
 alias ssh="ssh -YA"
 #alias sp="sudo pacman -S"                             # Manjaro Linux
+#alias spu="sudo pacman -Syyu"                         # Manjaro Linux
 #alias spy="sudo pacman -Sy"                           # Manjaro Linux
 #alias sry="sudo pacman -R"                            # Manjaro Linux
 #alias supg="sudo apt update && sudo apt upgrade -y"   # Ubuntu Linux
@@ -120,7 +121,7 @@ function gprune() {
     gbrd $1
 }
 # Git aliases for GEOS-Chem
-source /etc/bash_completion.d/git
+#source /etc/bash_completion.d/git
 alias clone_gcc="git clone git@github.com:geoschem/GCClassic.git"
 alias clone_gchp="git clone git@github.com:geoschem/gchp.git"
 alias clone_hco="git clone git@github.com:geoschem:hemco.git"
@@ -164,7 +165,7 @@ function awsgo() {
 #==============================================================================
 
 # Select Bob Y's custom environment (matplotlib 3)
-alias sab="conda activate bmy"
+alias sab="conda activate gcpy"
 alias sdb="conda deactivate"
 
 # Add Python repos to $PYTHONPATH
