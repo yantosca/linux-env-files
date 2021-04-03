@@ -253,6 +253,7 @@
  '(current-language-environment "ASCII")
  '(display-time-mode t)
  '(global-font-lock-mode t nil (font-lock))
+ '(package-selected-packages '(yasnippet-classic-snippets))
  '(query-user-mail-address nil)
  '(user-mail-address "yantosca@seas.harvard.edu"))
 
@@ -601,6 +602,14 @@
 ;;(load "desktop")
 ;;(desktop-load-default)
 ;;(desktop-read)
+
+;;=============================================================================
+;; Enable YASnippets
+;;=============================================================================
+(add-to-list 'load-path
+              "~/.emacs.d/elpa/yasnippet-0.14.0")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;;=============================================================================
 ;; FRAME SIZE AND POSITION
