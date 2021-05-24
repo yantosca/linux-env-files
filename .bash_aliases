@@ -31,7 +31,8 @@
 # Settings for colorization
 export GREP_COLOR=32
 
-if [[ "x${EMACS}" == "x" ]]; then
+# Test if we are running a terminal inside emacs
+if [[ "x${INSIDE_EMACS}" == "x" ]]; then  # Emacs 27
 
     #--------------------------------------------------------------------------
     # Prompt and color settings for Xterm
