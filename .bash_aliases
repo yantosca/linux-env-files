@@ -147,6 +147,17 @@ function gprune() {
     git branch -d $1
     gbrd $1
 }
+
+function ghgc() {
+    ##### Clone a repo from github.com/geoschem #####
+    git clone git@github.com:geoschem/${1}.git
+}
+function ghy() {
+    ##### Clone a repo from github.com/yantosca #####
+    git clone git@github.com:yantosca/${1}.git
+}
+
+
 # Git aliases for GEOS-Chem
 #source /etc/bash_completion.d/git
 alias clone_gcc="git clone git@github.com:geoschem/GCClassic.git"
