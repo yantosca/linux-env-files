@@ -30,5 +30,5 @@ cp -f .Xresources   ~
 if [[ ! -d ~/.emacs.d ]]; then
     mv ~/.emacs.d .was.emacs.d
 fi
-cp -f .emacs.d ~/.emacs.d/
+cp -fR .emacs.d ~/.emacs.d/
 #EOC
