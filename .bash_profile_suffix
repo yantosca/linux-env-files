@@ -1,6 +1,7 @@
+
 ###############################################################################
-#####  Above this line are the unchanged Ubuntu 20.04 bashrc settings     #####
-#####  Below this line are updates added by Bob Y. (26 Dec 2020)          #####
+#####  Add your local SSH private keys to the SSH agent and start it      #####
+#####  cf https://gist.github.com/Perigrinox/git bash ssh agent.md        #####
 ###############################################################################
 
 # Define the path to SSH private keys that you would like to be forwarded
@@ -27,11 +28,11 @@ agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 
 # Add a new ssh-add command for all of the private keys
 # that you want to be forwarded with ssh-agent!
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+if [[ ! "$SSH_AUTH_SOCK" ]] || [[ $agent_run_state = 2 ]] then
     agent_start
     ssh-add ${key_1}
     ssh-add ${key_2}
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+elif [[ "$SSH_AUTH_SOCK" ]] && [[ $agent_run_state = 1 ]]; then
     ssh-add ${key_1}
     ssh-add ${key_2}
 fi
