@@ -21,14 +21,14 @@
 #BOC
 
 # Copy files to the home folder
+cp -f .bash_profile ~
 cp -f .bash_aliases ~
 #cp -f .gitconfig    ~
 cp -f .tmux.conf    ~
 cp -f .Xresources   ~
+cp -f .ssh-config ~/.ssh/config
 
 # Copy emacs init files
-if [[ ! -d ~/.emacs.d ]]; then
-    mv ~/.emacs.d .was.emacs.d
-fi
+[[ ! -d ~/.emacs.d ]] && mv ~/.emacs.d .was.emacs.d
 cp -fR .emacs.d ~/.emacs.d/
 #EOC

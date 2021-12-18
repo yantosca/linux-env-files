@@ -181,18 +181,6 @@ else
 fi
 
 #============================================================================
-# KPP (Kinetic PreProcessor) settings
-#============================================================================
-
-# Set home directory for KPP
-export KPP_HOME=~/repos/KPP3
-export KPP_BIN=${KPP_HOME}/bin
-
-# Update the PATH -- add /usr/local/include for compilers
-# and add the KPP_BIN folder
-export PATH=${PATH}:${KPP_BIN}
-
-#============================================================================
 # Python settings
 #============================================================================
 if [[ "x${PYTHONPATH}" != "x" ]]; then
