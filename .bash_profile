@@ -6,20 +6,15 @@
 # Add directories to $PATH -- these only have to be done once
 #============================================================================
 
-# Add Ruby Gems home to $PATH
+# Ruby Gems location
 export GEM_HOME=$(ruby -e 'puts Gem.user_dir')/bin
-export PATH="${GEM_HOME}:${PATH}"
 
-# Add ~/bin to the head of $PATH
-export PATH=~/bin:${PATH}
-
-# Set home directory for KPP3
+# KPP location
 export KPP_HOME=~/work/KPP3
 export KPP_BIN=${KPP_HOME}/bin
 
-# Update the PATH -- add /usr/local/include for compilers
-# and add the KPP_BIN folder
-export PATH=~/bin:${PATH}:${KPP_BIN}
+# Update the PATH settings
+export PATH="~/bin:${GEM_HOME}:${PATH}:${KPP_BIN}"
 
 #============================================================================
 # Apply settings in the .bashrc file
