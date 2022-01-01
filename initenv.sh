@@ -21,12 +21,13 @@
 #BOC
 
 # Copy files to the home folder
-cp -f .bash_profile ~
-cp -f .bash_aliases ~
+cp -f .bash_profile  ~
+cp -f .bash_set_path ~
+cp -f .bash_aliases  ~
 #cp -f .gitconfig    ~
-cp -f .tmux.conf    ~
-cp -f .Xresources   ~
-cp -f .ssh-config ~/.ssh/config
+cp -f .tmux.conf     ~
+cp -f .Xresources    ~
+cp -f .ssh-config    ~/.ssh/config
 
 # Copy emacs init files
 [[ ! -d ~/.emacs.d ]] && mv ~/.emacs.d .was.emacs.d

@@ -28,7 +28,7 @@
 
 # Settings for colorization
 export GREP_COLOR=32
-    
+
 # Override the system prompt (93 = yellow)
 PS1="\[\e[1;93m\][\h \W]$\[\e[0m\] "
 
@@ -56,11 +56,11 @@ SYSTEM=$(uname -s)
 # Define aliases that differ between MacOS (aka Darwin) and GNU Linux
 if [[ "x${SYSTEM}" == "xDarwin" ]]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-    alias rm="rm -v"                                          
+    alias rm="rm -v"
     alias ls="ls -CF"
 else
-    alias emacs="emacs 2>/dev/null"                       
-    alias rm="rm -Iv"                                     
+    alias emacs="emacs 2>/dev/null"
+    alias rm="rm -Iv"
     alias ls="ls -CF --time-style=long-iso --color=auto"
     alias sp="sudo pacman -S"                             # Manjaro Linux
     alias spu="sudo pacman -Syyu"                         # Manjaro Linux
@@ -188,36 +188,30 @@ if [[ "x${PYTHONPATH}" != "x" ]]; then
     # Select Bob Y's custom environment (matplotlib 3)
     alias sab="conda activate gcpy"
     alias sdb="conda deactivate"
-    
+
     # Add Python repos to $PYTHONPATH
     export PYTHONPATH=${PYTHONPATH}:${HOME}/python/gcpy
-    
+
     # Ignore warnings about deprecated options
     export PYTHONWARNINGS=ignore::DeprecationWarning
-    
+
     # Settings for Python packages
     export PYLINTRC=~/.pylint.rc
-    
+
     # Temporary Python folder (avoids warning messages)
     export XDG_RUNTIME_DIR=/tmp/runtime-${USER}
 fi
-    
+
 ##============================================================================
 ## Ruby & Jekyll settings
 ##
 ## Manjaro : https://wiki.archlinux.org/index.php/Ruby
 ## Ubuntu  : https://jekyllrb.com/docs/installation/ubuntu/
 ##============================================================================
-RUBY=$(which ruby)
-if [[ "xRUBY" != "x" ]]; then
-    # Folder where Ruby GEMS are installed
-    export GEM_HOME=$(ruby -e 'puts Gem.user_dir')/bin
-    export PATH="${GEM_HOME}:${PATH}"
 
-    # Jekyll command
-    alias jserve="bundle exec jekyll serve"
-fi
-    
+# Jekyll command
+alias jserve="bundle exec jekyll serve"
+
 #============================================================================
 # Personal settings: Harvard logins
 #============================================================================
