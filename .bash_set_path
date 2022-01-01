@@ -4,14 +4,6 @@
 #
 
 #============================================================================
-# Add Ruby Gems folder to the beginning of $PATH
-#============================================================================
-if [[ $(which ruby) != "" ]]; then
-   export GEM_HOME=$(ruby -e 'puts Gem.user_dir')/bin
-   export PATH="${GEM_HOME}:${PATH}"
-fi
-
-#============================================================================
 # Add the KPP executable folder to the end of $PATH
 #============================================================================
 KPP_BIN=$(dirname $(which kpp))
@@ -20,9 +12,24 @@ if [[ -d ${KPP_BIN} ]]; then
 fi
 
 #============================================================================
-# MacOS only: Add this to avoid this warning from "brew doctor":
-# Warning: Homebrew's "sbin" was not found in your PATH but you have
-# installed formulae that put executables in /usr/local/sbin.
+# Add Ruby Gems folder to the beginning of $PATH
+#===========================================]=================================
+if [[ $(which ruby) != "" ]]; then
+   export GEM_HOME=$(ruby -e 'puts Gem.user_dir')/bin
+   export PATH="${GEM_HOME}:${PATH}"
+fi
+
+#============================================================================
+# If there is a ~/bin folder, add it to the beginning of PATH
+#============================================================================
+if [[ -d ~/bin ]]; then
+    export PATH="~/bin:${PATH}"
+fi
+
+#============================================================================
+# MacOS only: Add /usr/local/sbin to beginning of PATH in order to avoid:
+#   Warning: Homebrew's "sbin" was not found in your PATH but you have
+#   installed formulae that put executables in /usr/local/sbin.
 #============================================================================
 if [[ "x${SYSTEM}" == "xDarwin" ]]; then
     export PATH="/usr/local/sbin:${PATH}"
