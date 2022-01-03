@@ -7,13 +7,13 @@
 #============================================================================
 
 # Add KPP folder to tail of $PATH
-export PATH="${PATH}:/home/bob/work/KPP3/bin"
-
-# Add Ruby Gems folder to head of $PATH
-export PATH="/home/bob/.gem/ruby/2.7.0/bin:${PATH}"
+export PATH="${PATH}:~/repos/KPP3/bin"
 
 # Add ~/bin to head of $PATH
-export PATH="/home/bob/bin:${PATH}"
+export PATH="~/bin:${PATH}"
+
+# Add /usr/local/sbin to head of $PATH (to avoid warnings)
+export PATH="/usr/local/sbin:${PATH}"
 
 #============================================================================
 # Source the .bashrc file if it exists
