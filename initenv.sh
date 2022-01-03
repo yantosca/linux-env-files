@@ -21,13 +21,14 @@
 #BOC
 
 # Copy files to the home folder
-cp -f .bash_profile  ~
-cp -f .bash_set_path ~
 cp -f .bash_aliases  ~
-#cp -f .gitconfig    ~
 cp -f .tmux.conf     ~
 cp -f .Xresources    ~
 cp -f .ssh-config    ~/.ssh/config
+
+# Copy the proper .bash_profile for Linux or MacOS
+[[ "x${SYSTEM}" == "xLinux"  ]] && cp -f .bash_profile_linux  ~
+[[ "x${SYSTEM}" == "xDarwin" ]] && cp -f .bash_profile_macos  ~
 
 # Copy emacs init files
 [[ ! -d ~/.emacs.d ]] && mv ~/.emacs.d .was.emacs.d

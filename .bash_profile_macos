@@ -1,0 +1,21 @@
+#
+# .bash_profile: Only executes at login
+#
+
+#============================================================================
+# PATH settings for Linux machine "hypnotoad"
+#============================================================================
+
+# Add KPP folder to tail of $PATH
+export PATH="${PATH}:/home/bob/work/KPP3/bin"
+
+# Add Ruby Gems folder to head of $PATH
+export PATH="/home/bob/.gem/ruby/2.7.0/bin:${PATH}"
+
+# Add ~/bin to head of $PATH
+export PATH="/home/bob/bin:${PATH}"
+
+#============================================================================
+# Source the .bashrc file if it exists
+#============================================================================
+[[ -f ~/.bashrc ]] && . ~/.bashrc
