@@ -3,7 +3,7 @@
 #
 
 #============================================================================
-# PATH settings for Linux machine "hypnotoad"
+# PATH settings for MacOS machine "calculon"
 #============================================================================
 
 # Add KPP folder to tail of $PATH
