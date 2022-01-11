@@ -22,6 +22,7 @@
 !------------------------------------------------------------------------------
 !BOC
 
+xterm*loginShell:      true
 xterm*background:      DarkSlateGray
 xterm*foreground:      LemonChiffon
 xterm*cursorColor:     FireBrick
